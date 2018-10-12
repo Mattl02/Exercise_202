@@ -5,7 +5,9 @@
  */
 package gui;
 
+import bl.Sender;
 import bl.SenderTableModel;
+import bl.SenderTableRenderer;
 
 /**
  *
@@ -19,8 +21,10 @@ public class GUI extends javax.swing.JFrame {
      */
     public GUI() {
         initComponents();
-        
+        tableStations.setComponentPopupMenu(jPopupMenu1);
         tableStations.setModel(model);
+        tableStations.setDefaultRenderer(Object.class, new SenderTableRenderer());
+        model.add(new Sender("Oe3", 89.20, "FM"));
     }
 
     /**
@@ -38,6 +42,11 @@ public class GUI extends javax.swing.JFrame {
         tableStations = new javax.swing.JTable();
 
         miAdd.setText("hinzufügen");
+        miAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miAddActionPerformed(evt);
+            }
+        });
         jPopupMenu1.add(miAdd);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -68,6 +77,15 @@ public class GUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void miAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAddActionPerformed
+        RadioDialog dialog = new RadioDialog(this, true);
+        dialog.show();
+        
+        if(dialog.isOk()){
+            model.add(dialog.getRadio());
+        }
+    }//GEN-LAST:event_miAddActionPerformed
 
     /**
      * @param args the command line arguments
