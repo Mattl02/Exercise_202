@@ -5,17 +5,22 @@
  */
 package gui;
 
+import bl.SenderTableModel;
+
 /**
  *
  * @author Matthias
  */
 public class GUI extends javax.swing.JFrame {
 
+    private SenderTableModel model = new SenderTableModel();
     /**
      * Creates new form GUI
      */
     public GUI() {
         initComponents();
+        
+        tableStations.setModel(model);
     }
 
     /**
@@ -27,8 +32,13 @@ public class GUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        miAdd = new javax.swing.JMenuItem();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableStations = new javax.swing.JTable();
+
+        miAdd.setText("hinzufügen");
+        jPopupMenu1.add(miAdd);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -95,7 +105,9 @@ public class GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JMenuItem miAdd;
     private javax.swing.JTable tableStations;
     // End of variables declaration//GEN-END:variables
 }
