@@ -5,12 +5,26 @@
  */
 package gui;
 
+import bl.Sender;
+
 /**
  *
  * @author Matthias
  */
 public class RadioDialog extends javax.swing.JDialog {
 
+    private boolean ok;
+    private Sender radio;
+
+    public boolean isOk() {
+        return ok;
+    }
+
+    public Sender getRadio() {
+        return radio;
+    }
+    
+    
     /**
      * Creates new form RadioDialog
      */
@@ -28,21 +42,66 @@ public class RadioDialog extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        lbSendername = new javax.swing.JLabel();
+        tfName = new javax.swing.JTextField();
+        lbFrequenz = new javax.swing.JLabel();
+        tfFrequenz = new javax.swing.JTextField();
+        lbBand = new javax.swing.JLabel();
+        tfBand = new javax.swing.JTextField();
+        btOk = new javax.swing.JButton();
+        btCancel = new javax.swing.JButton();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(new java.awt.GridLayout(4, 2));
+
+        lbSendername.setText("Sendername");
+        getContentPane().add(lbSendername);
+
+        tfName.setText("Radio A1");
+        getContentPane().add(tfName);
+
+        lbFrequenz.setText("Frequenz");
+        getContentPane().add(lbFrequenz);
+
+        tfFrequenz.setText("194.6");
+        getContentPane().add(tfFrequenz);
+
+        lbBand.setText("Band:");
+        getContentPane().add(lbBand);
+
+        tfBand.setText("AM");
+        getContentPane().add(tfBand);
+
+        btOk.setText("OK");
+        btOk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btOkActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btOk);
+
+        btCancel.setText("Cancel");
+        btCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCancelActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btCancel);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btOkActionPerformed
+        Sender s = new Sender(tfName.getText(), Double.parseDouble(tfFrequenz.getText()), tfBand.getText());
+        
+        ok = true;
+        this.dispose();
+    }//GEN-LAST:event_btOkActionPerformed
+
+    private void btCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelActionPerformed
+        ok = false;
+        this.dispose();
+    }//GEN-LAST:event_btCancelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -87,5 +146,13 @@ public class RadioDialog extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btCancel;
+    private javax.swing.JButton btOk;
+    private javax.swing.JLabel lbBand;
+    private javax.swing.JLabel lbFrequenz;
+    private javax.swing.JLabel lbSendername;
+    private javax.swing.JTextField tfBand;
+    private javax.swing.JTextField tfFrequenz;
+    private javax.swing.JTextField tfName;
     // End of variables declaration//GEN-END:variables
 }
