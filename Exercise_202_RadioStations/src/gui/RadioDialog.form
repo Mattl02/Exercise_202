@@ -20,16 +20,56 @@
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
   </AuxValues>
 
-  <Layout>
-    <DimensionLayout dim="0">
-      <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="400" max="32767" attributes="0"/>
-      </Group>
-    </DimensionLayout>
-    <DimensionLayout dim="1">
-      <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="300" max="32767" attributes="0"/>
-      </Group>
-    </DimensionLayout>
+  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+    <Property name="columns" type="int" value="2"/>
+    <Property name="rows" type="int" value="4"/>
   </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="lbSendername">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Sendername"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfName">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Radio A1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbFrequenz">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Frequenz"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfFrequenz">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="194.6"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbBand">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Band:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfBand">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="AM"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btOk">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="OK"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btOkActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btCancel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cancel"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btCancelActionPerformed"/>
+      </Events>
+    </Component>
+  </SubComponents>
 </Form>
