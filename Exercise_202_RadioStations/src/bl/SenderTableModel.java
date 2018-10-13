@@ -20,6 +20,21 @@ public class SenderTableModel extends AbstractTableModel{
         this.fireTableRowsInserted(radios.size()-1, radios.size()-1);
     }
     
+    public void hideBand(){
+        colNames = new String[2];
+        colNames[0] = "Sender";
+        colNames[1] = "Frequenz";
+        this.fireTableStructureChanged();
+    }
+    
+    public void showBand(){
+        colNames = new String[3];
+        colNames[0] = "Sender";
+        colNames[1] = "Frequenz";
+        colNames[2] = "Band";
+        this.fireTableStructureChanged();
+    }
+    
     @Override
     public int getRowCount() {
         return radios.size();
@@ -34,5 +49,12 @@ public class SenderTableModel extends AbstractTableModel{
     public Object getValueAt(int row, int col) {
         return radios.get(row);
     }
+
+    @Override
+    public String getColumnName(int i) {
+        return colNames[i];
+    }
+    
+    
 
 }

@@ -38,6 +38,8 @@ public class GUI extends javax.swing.JFrame {
 
         jPopupMenu1 = new javax.swing.JPopupMenu();
         miAdd = new javax.swing.JMenuItem();
+        miHide = new javax.swing.JMenuItem();
+        miShow = new javax.swing.JMenuItem();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableStations = new javax.swing.JTable();
 
@@ -48,6 +50,22 @@ public class GUI extends javax.swing.JFrame {
             }
         });
         jPopupMenu1.add(miAdd);
+
+        miHide.setText("Band verstecken");
+        miHide.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miHideActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(miHide);
+
+        miShow.setText("Band anzeigen");
+        miShow.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miShowActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(miShow);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,6 +104,14 @@ public class GUI extends javax.swing.JFrame {
             model.add(dialog.getRadio());
         }
     }//GEN-LAST:event_miAddActionPerformed
+
+    private void miHideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miHideActionPerformed
+        model.hideBand();
+    }//GEN-LAST:event_miHideActionPerformed
+
+    private void miShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miShowActionPerformed
+        model.showBand();
+    }//GEN-LAST:event_miShowActionPerformed
 
     /**
      * @param args the command line arguments
@@ -126,6 +152,8 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JMenuItem miAdd;
+    private javax.swing.JMenuItem miHide;
+    private javax.swing.JMenuItem miShow;
     private javax.swing.JTable tableStations;
     // End of variables declaration//GEN-END:variables
 }
