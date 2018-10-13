@@ -2,6 +2,7 @@
 package bl;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import javax.swing.table.AbstractTableModel;
 
 /**
@@ -15,6 +16,7 @@ public class SenderTableModel extends AbstractTableModel{
     
     public void add(Sender s){
         radios.add(s);
+        Collections.sort(radios, new SortByFrequency());
         this.fireTableRowsInserted(radios.size()-1, radios.size()-1);
     }
     
