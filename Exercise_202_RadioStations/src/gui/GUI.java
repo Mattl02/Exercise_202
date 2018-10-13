@@ -31,6 +31,11 @@ public class GUI extends javax.swing.JFrame {
         catch(Exception ex){
             
         }
+        
+        if(model.getRowCount() <= 0){
+            miHide.setVisible(false);
+            miShow.setVisible(false);
+        }
     }
 
     /**
@@ -116,6 +121,8 @@ public class GUI extends javax.swing.JFrame {
         if(dialog.isOk()){
             model.add(dialog.getRadio());
         }
+        miHide.setVisible(true);
+        miShow.setVisible(true);
     }//GEN-LAST:event_miAddActionPerformed
 
     private void miHideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miHideActionPerformed
