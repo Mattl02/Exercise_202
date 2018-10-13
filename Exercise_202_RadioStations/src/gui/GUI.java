@@ -21,6 +21,7 @@ public class GUI extends javax.swing.JFrame {
      */
     public GUI() {
         initComponents();
+        
         tableStations.setComponentPopupMenu(jPopupMenu1);
         tableStations.setModel(model);
         tableStations.setDefaultRenderer(Object.class, new SenderTableRenderer());
@@ -68,6 +69,8 @@ public class GUI extends javax.swing.JFrame {
         jPopupMenu1.add(miShow);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jScrollPane1.setComponentPopupMenu(jPopupMenu1);
 
         tableStations.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
