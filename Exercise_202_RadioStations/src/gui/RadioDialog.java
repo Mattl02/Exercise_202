@@ -6,6 +6,7 @@
 package gui;
 
 import bl.Sender;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -92,10 +93,18 @@ public class RadioDialog extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btOkActionPerformed
-        radio = new Sender(tfName.getText(), Double.parseDouble(tfFrequenz.getText()), tfBand.getText());
+        if(!(tfBand.getText().equals("AM") || tfBand.getText().equals("FM"))){
+            JOptionPane.showMessageDialog(this, "Bitte nur AM oder FM als Band eingeben.", "Fehler", JOptionPane.OK_OPTION);
+        }
+        else if(Double.parseDouble(tfFrequenz.getText()) <= 0 || Double.parseDouble(tfFrequenz.getText()) >= 1000){
+            JOptionPane.showMessageDialog(this, "Bitte nur Werte > 0 und < 1000 als Frequenz eingeben.", "Fehler", JOptionPane.OK_OPTION);
+        }
+        else{
+            radio = new Sender(tfName.getText(), Double.parseDouble(tfFrequenz.getText()), tfBand.getText());
         
-        ok = true;
-        this.dispose();
+            ok = true;
+            this.dispose();
+        }
     }//GEN-LAST:event_btOkActionPerformed
 
     private void btCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelActionPerformed
