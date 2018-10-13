@@ -8,7 +8,7 @@ import java.io.Serializable;
  * @author Matthias
  */
 public class Sender implements Serializable{
-    private String name;
+    private transient String name;
     private double frequenz;
     private String band;
 
