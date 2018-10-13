@@ -1,6 +1,11 @@
 
 package bl;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import javax.swing.table.AbstractTableModel;
@@ -33,6 +38,25 @@ public class SenderTableModel extends AbstractTableModel{
         colNames[1] = "Frequenz";
         colNames[2] = "Band";
         this.fireTableStructureChanged();
+    }
+    
+    public void load() throws Exception{
+        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File("./data.bin")));
+        Sender s;
+        while((s = (Sender) ois.readObject()) != null){
+            radios.add(s);
+        }
+        this.fireTableRowsInserted(0, radios.size() - 1);
+    }
+    
+    public void save() throws Exception{
+        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("./data.bin"));
+        
+        for(Sender s : radios){
+            oos.writeObject(s);
+        }
+        
+        oos.close();
     }
     
     @Override
