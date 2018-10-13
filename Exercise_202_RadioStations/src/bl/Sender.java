@@ -27,6 +27,11 @@ public class Sender {
     public String getBand() {
         return band;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s,%.2f,%s", name, frequenz, band);
+    }
     
     
 }

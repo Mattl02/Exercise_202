@@ -92,7 +92,7 @@ public class RadioDialog extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btOkActionPerformed
-        Sender s = new Sender(tfName.getText(), Double.parseDouble(tfFrequenz.getText()), tfBand.getText());
+        radio = new Sender(tfName.getText(), Double.parseDouble(tfFrequenz.getText()), tfBand.getText());
         
         ok = true;
         this.dispose();

@@ -15,7 +15,7 @@ public class SenderTableModel extends AbstractTableModel{
     
     public void add(Sender s){
         radios.add(s);
-        this.fireTableRowsInserted(radios.size() - 1, radios.size() - 1);
+        this.fireTableRowsInserted(radios.size()-1, radios.size()-1);
     }
     
     @Override

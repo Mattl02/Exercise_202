@@ -17,7 +17,6 @@ public class SenderTableRenderer implements TableCellRenderer{
     public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int col) {
         JLabel label = new JLabel();
         label.setOpaque(true);
-        
         Sender s = (Sender) value;
         
         switch(col){
@@ -32,7 +31,7 @@ public class SenderTableRenderer implements TableCellRenderer{
                 break;
         }
         
-        label.setForeground(Color.GRAY);
+        label.setForeground(Color.WHITE);
         
         if(s.getBand().equals("FM")){
             label.setBackground(Color.RED);

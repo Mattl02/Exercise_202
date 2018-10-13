@@ -80,7 +80,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void miAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAddActionPerformed
         RadioDialog dialog = new RadioDialog(this, true);
-        dialog.show();
+        dialog.setVisible(true);
         
         if(dialog.isOk()){
             model.add(dialog.getRadio());
