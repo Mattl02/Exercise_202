@@ -5,7 +5,6 @@
  */
 package gui;
 
-import bl.Sender;
 import bl.SenderTableModel;
 import bl.SenderTableRenderer;
 
@@ -24,7 +23,13 @@ public class GUI extends javax.swing.JFrame {
         tableStations.setComponentPopupMenu(jPopupMenu1);
         tableStations.setModel(model);
         tableStations.setDefaultRenderer(Object.class, new SenderTableRenderer());
-        model.add(new Sender("Oe3", 89.20, "FM"));
+        
+        try{
+            model.load();
+        }
+        catch(Exception ex){
+            
+        }
     }
 
     /**
@@ -68,6 +73,11 @@ public class GUI extends javax.swing.JFrame {
         jPopupMenu1.add(miShow);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         tableStations.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -112,6 +122,15 @@ public class GUI extends javax.swing.JFrame {
     private void miShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miShowActionPerformed
         model.showBand();
     }//GEN-LAST:event_miShowActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        try{
+            model.save();
+        }
+        catch(Exception ex){
+            
+        }
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

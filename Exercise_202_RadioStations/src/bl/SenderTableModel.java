@@ -42,9 +42,8 @@ public class SenderTableModel extends AbstractTableModel{
     
     public void load() throws Exception{
         ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File("./data.bin")));
-        
-        while((ois.readObject()) != null){
-            Sender s = (Sender) ois.readObject();
+        Sender s;
+        while((s = (Sender) ois.readObject()) != null){
             radios.add(s);
         }
         this.fireTableRowsInserted(0, radios.size() - 1);
