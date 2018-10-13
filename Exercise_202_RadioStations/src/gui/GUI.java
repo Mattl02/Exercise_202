@@ -121,8 +121,10 @@ public class GUI extends javax.swing.JFrame {
         if(dialog.isOk()){
             model.add(dialog.getRadio());
         }
-        miHide.setVisible(true);
-        miShow.setVisible(true);
+        if(!miHide.isVisible() && model.getRowCount() > 0){
+            miHide.setVisible(true);
+            miShow.setVisible(true);
+        }
     }//GEN-LAST:event_miAddActionPerformed
 
     private void miHideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miHideActionPerformed
